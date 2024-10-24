@@ -15,4 +15,4 @@ Config:
 
 Start:
 
-    python bot.py
+    python3 bot.py
