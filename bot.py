@@ -14,9 +14,15 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(BOT_INTRO)
 
 async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text(OpenAIChat().get_response(update.message.text))
+    response_text = OpenAIChat().get_response(update.message.text)
+    text_with_bold = response_text.replace('**', '*')
+    await update.message.reply_text(
+        text_with_bold,
+        parse_mode="Markdown"
+    )
 
 def main() -> None:
+    print('started...')
     application = ApplicationBuilder().token(API_TOKEN).build()
 
     application.add_handler(CommandHandler("start", start))
