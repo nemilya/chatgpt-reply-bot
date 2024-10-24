@@ -1,0 +1,1 @@
+'You are a helpful assistant...' -- This is an example of a long system message that can be placed in this file to overwrite the existing environment's system message. Rename this file to `system_message.txt` and update the text accordingly.
